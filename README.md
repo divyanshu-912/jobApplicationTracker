@@ -1,16 +1,73 @@
-# React + Vite
+# JobTrack: Job Application Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple, responsive web app to keep track of job applications. Built with React and plain CSS. All data is saved in the browser using localStorage, so records remain after a page refresh.
 
-Currently, two official plugins are available:
+**Live Demo:** (https://effortless-empanada-e82015.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Add a job application with company name, job role, application date and status
+- View all applications in a clean table
+- Edit and delete applications
+- Filter applications by status (Applied, Interview, Offer, Rejected)
+- Search by company name or job role
+- Dashboard showing total applications and interview count
+- Data saved in localStorage (persists after refresh)
+- Responsive layout with labelled form fields and keyboard focus styles
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- React.js
+- JavaScript (ES6)
+- HTML / JSX
+- CSS (plain, no libraries)
+- localStorage
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Project Structure
+
+```
+src/
+  components/
+    JobForm.jsx   # Add / edit form
+    JobList.jsx   # Table of applications
+  App.jsx         # Main component: state, filter, search, localStorage
+  App.css         # All styles
+  main.jsx        # Entry point
+```
+
+## How to Run Locally
+
+Make sure [Node.js](https://nodejs.org) is installed.
+
+```bash
+git clone https://github.com/divyanshu-912/jobApplicationTracker.git
+cd jobApplicationTracker
+npm install
+npm run dev
+```
+
+Open the link shown in the terminal (usually http://localhost:5173).
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+## How It Works
+
+- `useState` stores the jobs list, search text, status filter and the job being edited.
+- `useEffect` saves the jobs to localStorage whenever they change.
+- Jobs are loaded from localStorage when the app starts.
+- The filtered list and the counts are calculated from the jobs array on every render.
+- `JobForm` and `JobList` receive data and functions from `App` through props.
+
+## Note
+
+Data is stored only in your own browser. It is not shared between devices or browsers, and clearing site data will remove it.
+
+## Author
+
+Divyanshu
+GitHub: [@divyanshu-912](https://github.com/divyanshu-912)
